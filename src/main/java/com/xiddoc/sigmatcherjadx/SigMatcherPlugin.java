@@ -1,17 +1,15 @@
-package org.sigmatcher.jadx;
+package com.xiddoc.sigmatcherjadx;
 
 import jadx.api.plugins.JadxPlugin;
 import jadx.api.plugins.JadxPluginContext;
 import jadx.api.plugins.JadxPluginInfo;
 import jadx.api.plugins.JadxPluginInfoBuilder;
 import jadx.api.plugins.gui.JadxGuiContext;
-import org.sigmatcher.jadx.popups.BasePopup;
-import org.sigmatcher.jadx.popups.CreateSignaturePopup;
-
-import java.util.List;
+import com.xiddoc.sigmatcherjadx.popups.BasePopup;
+import com.xiddoc.sigmatcherjadx.popups.CreateSignaturePopup;
 
 public class SigMatcherPlugin implements JadxPlugin {
-	public static final String PLUGIN_ID = "sigmatcher-jadx-plugin";
+	public static final String PLUGIN_ID = "sigmatcher-jadx";
 	private final SigMatcherOptions options = new SigMatcherOptions();
 	private final static BasePopup[] popups = {new CreateSignaturePopup()};
 
@@ -21,7 +19,7 @@ public class SigMatcherPlugin implements JadxPlugin {
 				.name("SigMatcher")
 				.description("Create signatures for classes, methods, and fields. " +
 						"Use the SigMatcher CLI to copy your renames from one APK version to the newer version.")
-				.homepage("https://github.com/oriori1703/sigmatcher/")
+				.homepage("https://github.com/Xiddoc/SigMatcherJadx/")
 				.build();
 	}
 

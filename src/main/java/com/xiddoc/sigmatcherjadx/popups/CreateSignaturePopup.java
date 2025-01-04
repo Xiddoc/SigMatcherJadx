@@ -1,6 +1,4 @@
-package org.sigmatcher.jadx.popups;
-
-import jadx.api.metadata.ICodeNodeRef;
+package com.xiddoc.sigmatcherjadx.popups;
 
 public class CreateSignaturePopup extends BasePopup {
 	@Override

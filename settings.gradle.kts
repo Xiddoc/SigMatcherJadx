@@ -1,2 +1,2 @@
 
-rootProject.name = "sigmatcher-jadx-plugin"
+rootProject.name = "sigmatcher-jadx"

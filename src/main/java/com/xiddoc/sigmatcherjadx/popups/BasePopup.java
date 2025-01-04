@@ -1,4 +1,4 @@
-package org.sigmatcher.jadx.popups;
+package com.xiddoc.sigmatcherjadx.popups;
 
 import jadx.api.JadxDecompiler;
 import jadx.api.metadata.ICodeNodeRef;

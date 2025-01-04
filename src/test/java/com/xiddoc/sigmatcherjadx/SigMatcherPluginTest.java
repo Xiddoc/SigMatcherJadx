@@ -1,4 +1,4 @@
-package org.sigmatcher.jadx;
+package com.xiddoc.sigmatcherjadx;
 
 import jadx.api.JadxArgs;
 import jadx.api.JadxDecompiler;
