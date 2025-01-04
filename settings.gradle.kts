@@ -1,0 +1,2 @@
+
+rootProject.name = "sigmatcher-jadx"
