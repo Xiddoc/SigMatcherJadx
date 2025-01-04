@@ -1,4 +1,4 @@
-package jadx.plugins.example;
+package org.sigmatcher.jadx;
 
 import jadx.api.data.CommentStyle;
 import jadx.api.plugins.pass.JadxPassInfo;

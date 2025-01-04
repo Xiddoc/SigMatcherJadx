@@ -1,1 +1,1 @@
-jadx.plugins.example.JadxExamplePlugin
+org.sigmatcher.jadx.SigMatcherPlugin
