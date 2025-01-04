@@ -6,16 +6,17 @@ import jadx.api.plugins.JadxPluginInfo;
 import jadx.api.plugins.JadxPluginInfoBuilder;
 
 public class JadxExamplePlugin implements JadxPlugin {
-	public static final String PLUGIN_ID = "example-plugin";
+	public static final String PLUGIN_ID = "sigmatcher-jadx-plugin";
 
-	private final ExampleOptions options = new ExampleOptions();
+	private final SigMatcherOptions options = new SigMatcherOptions();
 
 	@Override
 	public JadxPluginInfo getPluginInfo() {
 		return JadxPluginInfoBuilder.pluginId(PLUGIN_ID)
-				.name("Jadx example plugin")
-				.description("Add jadx watermark comment to every class")
-				.homepage("https://github.com/jadx-decompiler/jadx-example-plugin")
+				.name("SigMatcher")
+				.description("Create signatures for classes, methods, and fields. " +
+						"Use the SigMatcher CLI to copy your renames from one APK version to the newer version.")
+				.homepage("https://github.com/oriori1703/sigmatcher/")
 				.build();
 	}
 

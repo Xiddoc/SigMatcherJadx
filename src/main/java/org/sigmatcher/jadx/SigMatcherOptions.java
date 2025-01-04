@@ -2,7 +2,7 @@ package jadx.plugins.example;
 
 import jadx.api.plugins.options.impl.BasePluginOptionsBuilder;
 
-public class ExampleOptions extends BasePluginOptionsBuilder {
+public class SigMatcherOptions extends BasePluginOptionsBuilder {
 
 	private boolean enable;
 
