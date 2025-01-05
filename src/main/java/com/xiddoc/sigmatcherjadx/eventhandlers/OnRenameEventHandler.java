@@ -1,5 +1,6 @@
 package com.xiddoc.sigmatcherjadx.eventhandlers;
 
+import jadx.api.plugins.events.IJadxEvent;
 import jadx.api.plugins.events.JadxEventType;
 import jadx.api.plugins.events.JadxEvents;
 
@@ -10,7 +11,7 @@ public class OnRenameEventHandler extends BaseJadxEventHandler {
 	}
 
 	@Override
-	public void onEvent() {
+	public void onEvent(IJadxEvent renamedNodeEvent) {
 
 	}
 }

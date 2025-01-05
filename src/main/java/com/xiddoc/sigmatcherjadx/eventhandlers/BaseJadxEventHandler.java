@@ -1,20 +1,28 @@
 package com.xiddoc.sigmatcherjadx.eventhandlers;
 
+import jadx.api.plugins.JadxPluginContext;
 import jadx.api.plugins.events.IJadxEvent;
-import jadx.api.plugins.events.IJadxEvents;
 import jadx.api.plugins.events.JadxEventType;
 
 import java.util.function.Consumer;
 
 public abstract class BaseJadxEventHandler implements Consumer<IJadxEvent> {
-	public final void registerHandler(IJadxEvents eventManager) {
-		eventManager.addListener(getEventType(), this::accept);
+	private JadxPluginContext context;
+
+	public final void registerEventHandler(JadxPluginContext context) {
+		this.context = context;
+		context.events().addListener(getEventType(), this::accept);
 	}
 
 	public final void accept(IJadxEvent renamedNodeEvent) {
-		onEvent();
+		if (context == null) {
+			throw new IllegalStateException("SigMatcher event handler was called before it was registered in the Jadx event manager.");
+		}
+
+		onEvent(context, renamedNodeEvent);
 	};
 
 	public abstract JadxEventType getEventType();
-	public abstract void onEvent();
+
+	public abstract void onEvent(JadxPluginContext context, IJadxEvent renamedNodeEvent);
 }

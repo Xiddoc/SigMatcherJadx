@@ -6,15 +6,12 @@ import jadx.api.plugins.JadxPlugin;
 import jadx.api.plugins.JadxPluginContext;
 import jadx.api.plugins.JadxPluginInfo;
 import jadx.api.plugins.JadxPluginInfoBuilder;
-import jadx.api.plugins.events.IJadxEvents;
-import jadx.api.plugins.events.JadxEvents;
-import jadx.api.plugins.gui.JadxGuiContext;
-import com.xiddoc.sigmatcherjadx.popups.BasePopup;
-import com.xiddoc.sigmatcherjadx.popups.CreateSignaturePopup;
+import com.xiddoc.sigmatcherjadx.keybinds.BaseKeybindAction;
+import com.xiddoc.sigmatcherjadx.keybinds.CreateSignatureKeybindAction;
 
 public class SigMatcherPlugin implements JadxPlugin {
 	public static final String PLUGIN_ID = "sigmatcher-jadx";
-	private final static BasePopup[] popups = {new CreateSignaturePopup()};
+	private final static BaseKeybindAction[] popups = {new CreateSignatureKeybindAction()};
 	private final static BaseJadxEventHandler[] eventHandlers = {new OnRenameEventHandler()};
 
 	@Override
@@ -30,20 +27,20 @@ public class SigMatcherPlugin implements JadxPlugin {
 	@Override
 	public void init(JadxPluginContext context) {
 		// Add our hotkeys
-		this.registerPopups(context.getGuiContext());
+		this.registerPopups(context);
 		// Subscribe to relevant Jadx events
-		this.registerEventHandlers(context.events());
+		this.registerEventHandlers(context);
 	}
 
-	public void registerPopups(JadxGuiContext gui) {
-		for (BasePopup popup : popups) {
-			popup.registerPopup(gui);
+	public void registerPopups(JadxPluginContext context) {
+		for (BaseKeybindAction keybind : popups) {
+			keybind.registerKeybind(context);
 		}
 	}
 
-	public void registerEventHandlers(IJadxEvents eventManager) {
+	public void registerEventHandlers(JadxPluginContext context) {
 		for (BaseJadxEventHandler eventHandler : eventHandlers) {
-			eventHandler.registerHandler(eventManager);
+			eventHandler.registerEventHandler(context);
 		}
 	}
 }
